@@ -118,18 +118,24 @@ export default function AiAssistant() {
 
   return (
     <>
-      {/* Pulse Orb Trigger Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 pl-4 pr-5 py-3.5 rounded-full bg-gold border border-gold hover:bg-champagne text-obsidian font-jetbrains text-xs tracking-wider uppercase font-semibold transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.4)] group"
-      >
-        <span className="relative flex h-3 w-3">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-obsidian opacity-75"></span>
-          <span className="relative inline-flex rounded-full h-3 w-3 bg-obsidian"></span>
-        </span>
-        <Bot size={16} className="group-hover:scale-110 transition-transform" />
-        <span>AI ASSISTANT</span>
-      </button>
+      {/* Pulse Orb Trigger Button with Chronograph Casing */}
+      <div className="fixed bottom-6 right-6 z-50 group flex items-center justify-center">
+        {/* Spinning Watch Compass Dial Rings */}
+        <div className="absolute w-[150px] h-[150px] rounded-full border border-gold/15 border-dashed pointer-events-none watch-dial-spin opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" />
+        <div className="absolute w-[130px] h-[130px] rounded-full border border-gold/10 pointer-events-none watch-dial-spin opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0" style={{ animationDirection: 'reverse', animationDuration: '36s' }} />
+
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="relative z-10 flex items-center gap-2.5 pl-4 pr-5 py-3.5 rounded-full bg-gold border border-gold hover:bg-champagne text-obsidian font-jetbrains text-xs tracking-wider uppercase font-semibold transition-all duration-300 shadow-[0_0_25px_rgba(212,175,55,0.4)] hover:scale-105"
+        >
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-obsidian opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-obsidian"></span>
+          </span>
+          <Bot size={16} className="group-hover:scale-110 transition-transform" />
+          <span>AI ASSISTANT</span>
+        </button>
+      </div>
 
       {/* Floating Chat Panel */}
       {isOpen && (
